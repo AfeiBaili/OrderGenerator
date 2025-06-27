@@ -2,7 +2,7 @@ package online.afeibaili.generator.resource
 
 import online.afeibaili.generator.{CloseableOps, InputStreamOps, NullCheck, OutStreamOps}
 
-import java.io.{File, FileNotFoundException, FileOutputStream}
+import java.io.{File, FileInputStream, FileNotFoundException, FileOutputStream}
 import scala.collection.JavaConverters.asScalaIteratorConverter
 
 object ResourceManager {
@@ -10,6 +10,12 @@ object ResourceManager {
         val stream = this.getClass.getResourceAsStream(resourceName)
         stream.checkNull()
         stream.buffered().use { reader =>
+            reader.lines().iterator().asScala.toList
+        }
+    }
+
+    def readListAsFile(path: String): List[String] = {
+        new FileInputStream(path).buffered().use { reader =>
             reader.lines().iterator().asScala.toList
         }
     }
