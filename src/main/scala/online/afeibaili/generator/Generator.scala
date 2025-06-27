@@ -81,7 +81,7 @@ object Generator {
 
     def product(): Product = {
         val product = productList(random.nextInt(productList.size)).split("-")
-        Product(product(0), product(2).toDouble, product(1))
+        Product(product(1), product(2).toDouble, product(0))
     }
 
     def createdTime(): String = LocalDateTime.now()

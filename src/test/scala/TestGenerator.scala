@@ -1,5 +1,5 @@
-import online.afeibaili.generator.Generator
+import online.afeibaili.generator.{Generator, Printer}
 
 object TestGenerator extends App {
-    Generator().getFullOrders(2000).print()
+    Generator().getOrdersAsString(10).print()
 }
